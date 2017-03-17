@@ -61,7 +61,6 @@ char* getlast(stack list) {
 }
 
 char* pop(stack list) {
-    /*pop*/
     if(list->size == 0)
         return NULL;
     struct node* temp;
@@ -77,7 +76,6 @@ char* pop(stack list) {
 }
 
 void push(char* input, stack list) {
-    /*push*/
     struct node* ground = (struct node*)malloc(sizeof(struct node));
     struct node* temp;
     if (list->size == 0) {
@@ -193,6 +191,8 @@ void Go(const char* inputs) {
     stack ch = init_stack();
     
     push("0", sign);
+    push("#", ch);
+    draw("signstack", "charstack", "input", "action");
     draw(nforeach(sign), nforeach(ch), &inputs[0], "初始化");
     
     char* temp;
@@ -271,7 +271,7 @@ char* chartostr(char c) {
 }
 
 void draw(char* sign, char* ch, const char* input, char* other) {
-    printf("%-15s\t#%-15s\t%-15s\t%s\n", sign, ch, input, other);
+    printf("%-15s\t%-15s\t%-15s\t%s\n", sign, ch, input, other);
 }
 
 int main(int argc, const char * argv[]) {
